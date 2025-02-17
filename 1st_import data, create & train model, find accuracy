@@ -1,0 +1,29 @@
+#python languege using anaconda & jupyter
+#basic of machine learning
+# source : https://www.youtube.com/watch?v=7eh4d6sabA0&t=270s
+
+# import library
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# import data
+music_data = pd.read_csv('file:///D:/A03_Issyan%20Maulidi/Machine%20learning/1_Import%20Data%20set/music.csv')
+X = music_data.drop(columns = ['genre'])
+y = music_data['genre']
+X_train, X_test, y_train, y_test   =train_test_split(X,y, test_size = 0.2)
+
+# create a model
+model = DecisionTreeClassifier()
+
+#train a model
+model.fit(X_train,y_train)
+
+#make a predictions
+predictions = model.predict(X_test)
+
+#finding the accuracy
+score = accuracy_score(y_test, predictions)
+score
+
