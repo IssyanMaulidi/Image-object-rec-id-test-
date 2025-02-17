@@ -21,3 +21,4 @@ tree.export_graphviz(model, out_file = 'music_recomender.dot',
                     filled = True)
                     
 #bukuanya harus pake vs code, anak conda gabisa
+# buka di VS Code harus pakai graphvis(dot) language support for VS code
