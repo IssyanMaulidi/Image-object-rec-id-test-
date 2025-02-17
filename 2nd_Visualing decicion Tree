@@ -1,0 +1,23 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+
+# Import data set
+music_data = pd.read_csv('file:///D:/A03_Issyan%20Maulidi/Machine%20learning/1_Import%20Data%20set/music.csv')
+X = music_data.drop(columns=['genre'])
+y = music_data['genre']
+
+# Create a model
+model = DecisionTreeClassifier()
+
+# Train a model
+model.fit(X, y)
+
+tree.export_graphviz(model, out_file = 'music_recomender.dot', 
+                     feature_names = ['age','gender'],
+                     class_names = sorted(y.unique()),
+                    label = 'all',
+                    rounded = True,
+                    filled = True)
+                    
+#bukuanya harus pake vs code, anak conda gabisa
